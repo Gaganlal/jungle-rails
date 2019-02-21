@@ -2,6 +2,30 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
+    <% @line_items.each do |item| %>
+      <h2>
+        <%= item.product.name %> 
+      </h2>
+      <div>
+        <h4>  
+          Description
+        </h4>
+          <%= item.product.description %>  
+        <h4>  
+          Quantity : <%= item.product.quantity %>
+        </h4>
+        <h4>  
+        Email: <%= @order.email %>
+        </h4>
+        <h4>  
+        Price Paid: <%= humanized_money_with_symbol item.total_price %>
+        </h4>
+      <div>
+      <div>
+        <img src="<%=item.product.image%>" >
+      </div>
+      <% end %>
+
   </header>
 
   <div class="order-summary jumbotron">
